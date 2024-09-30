@@ -1,0 +1,25 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Live Cricket Scores</title>
+    <link rel="stylesheet" href="{{ url_for('static', filename='css/styles.css') }}">
+</head>
+<body>
+    <header>
+        <h1>FTM CRICKET WORLD</h1>
+    </header>
+    <main>
+        <div id="scores">
+            {% for match in scores %}
+                <div class="match">
+                    <h2>{{ match['matchTitle'] }}</h2>
+                    <p>Score: {{ match['score'] }}</p>
+                </div>
+            {% endfor %}
+        </div>
+    </main>
+    <script src="{{ url_for('static', filename='js/scripts.js') }}"></script>
+</body>
+</html>
