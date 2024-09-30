@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Live Cricket Scores</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            background-color: #f4f4f4;
+            margin: 0;
+            padding: 20px;
+        }
+        h1 {
+            text-align: center;
+        }
+        .score {
+            background: #fff;
+            padding: 10px;
+            margin: 10px 0;
+            border-radius: 5px;
+            box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
+        }
+    </style>
+</head>
+<body>
+    <h1>Live Cricket Scores</h1>
+    {% if scores %}
+        {% for match in scores %}
+            <div class="score">
+                <h3>{{ match['team1'] }} vs {{ match['team2'] }}</h3>
+                <p>Score: {{ match['score'] }}</p>
+                <p>Status: {{ match['status'] }}</p>
+            </div>
+        {% endfor %}
+    {% else %}
+        <p>No live scores available at the moment.</p>
+    {% endif %}
+</body>
+</html>
